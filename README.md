@@ -1,4 +1,4 @@
-> 根据github上面https://github.com/QiaokeliHenku的music项目，进行react的学习，包含了react，vue，react hooks三个不同版本，涵盖了react非常多的知识点以及一些常用的库。
+> 根据github上面[点击传送](https://github.com/QiaokeliHenku的music)项目，进行react的学习，包含了react，vue，react hooks三个不同版本，涵盖了react非常多的知识点以及一些常用的库。
 
 <!--more-->
 
