@@ -1,14 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import { HashRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store/index";
+import "./static/iconfont/iconfont.css";
+import "./static/js/rem";
+import "./static/css/reset.css";
+import "./static/css/home.scss";
+import "./static/css/recommend.scss";
+import "./static/css/rank.scss";
+import "./static/css/songSheet.scss";
+import "./static/css/dj.scss";
+import "./static/css/search.scss";
+import "./static/css/my.scss";
+import "./static/css/video.scss";
+import "./static/css/player.scss";
+import "./static/css/skin.scss";
+import "./static/css/common.scss";
+import App from "./App.js";
+import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <HashRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </HashRouter>,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

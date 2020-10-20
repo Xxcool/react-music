@@ -1,26 +1,78 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Suspense } from "react";
+import { Redirect, withRouter } from "react-router-dom";
+import CacheRoute, { CacheSwitch } from "react-router-cache-route";
+import { connect } from "react-redux";
+import { stairRouter } from "./router/index";
+import SmallPlayer from "./component/common/SmallPlayer";
+import Loading from "./component/content/Loading";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+class App extends Component {
+  componentDidMount() {
+    this.setTheme(this.props.themeName.name);
+  }
+  // 设置主题
+  setTheme(name) {
+    const el = document.querySelector("#theme");
+    el.href = `http://www.qklhk.co/theme/${name}.css`;
+  }
+  UNSAFE_componentWillUpdate(nextProps, nextState, nextContext) {
+    const { themeName } = nextProps;
+    if (themeName) {
+      this.setTheme(themeName.name);
+    }
+  }
+  render() {
+    const { location, loginStatus } = this.props;
+    return (
+      // 一级路由
+      <Suspense fallback={<Loading />}>
+        <section
+          style={{
+            paddingBottom:
+              location.pathname !== "/player" && Object.keys(loginStatus).length
+                ? "41px"
+                : "0",
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          <CacheSwitch>
+            {stairRouter.map((item) => (
+              <CacheRoute
+                key={item.path}
+                path={item.path}
+                component={item.component}
+                // 一些是路由缓存插件的一些配置
+                when="always"
+                behavior={(cached) =>
+                  cached
+                    ? {
+                        style: {
+                          position: "absolute",
+                          zIndex: -9999,
+                          opacity: 0,
+                          visibility: "hidden",
+                          pointerEvents: "none",
+                        },
+                        className: "__CacheRoute__wrapper__cached",
+                      }
+                    : {
+                        className: "__CacheRoute__wrapper__uncached",
+                      }
+                }
+                saveScrollPosition={true}
+              />
+            ))}
+            <Redirect to="/home/discover" />
+          </CacheSwitch>
+        </section>
+        <SmallPlayer />
+      </Suspense>
+    );
+  }
 }
 
-export default App;
+export default withRouter(
+  connect((state) => ({
+    loginStatus: state.loginStatus,
+    themeName: state.themeName,
+  }))(App)
+);

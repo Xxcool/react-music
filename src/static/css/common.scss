@@ -1,0 +1,357 @@
+// 公共组件的样式
+#root {
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+// 头部组件的样式
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.33rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0 0.4rem;
+    i,a {
+        color: var(--themeFontColor);
+        font-size: 0.53rem;
+    }
+    .header_nav {
+        display: flex;
+        justify-content: space-evenly;
+        width: 6.4rem;
+        a {
+            font-size: 0.48rem;
+            color: var(--themeFontColor);
+            transition: 0.5s;
+            // 激活的nav导航
+            &.active {
+                font-weight: bold;
+                color: var(--themeColor);
+            }
+        }
+    }
+    // 左头部
+    .header_left {
+        display: flex;
+        align-items: center;
+        color: var(--themeFontColor);
+        i {
+            font-size: .4rem;
+        }
+        p {
+            font-size: .35rem;
+            margin-left: .1rem;
+        }
+    }
+}
+.header_fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 99;
+}
+// /hoem/my路由组件头部样式
+.header.dark {
+    background: rgba(0, 0, 0, 0.7) !important;
+    i,a.active {
+        color: #ffffff;
+    }
+}
+// loading样式
+.lds-roller {
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    margin: auto;
+    width: 80px;
+    height: 80px;
+}
+
+.lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+}
+
+.lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--themeColor);
+    margin: -4px 0 0 -4px;
+}
+
+.lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+}
+
+.lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+}
+
+.lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+}
+
+.lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+}
+
+.lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+}
+
+.lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+}
+
+.lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+}
+
+.lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+}
+
+.lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+}
+
+.lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+}
+
+.lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+}
+
+.lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+}
+
+.lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+}
+
+.lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+}
+
+.lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+}
+
+.lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+}
+
+@keyframes lds-roller {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+// 单个歌单选项的样式
+.song_item {
+    width: 2.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .info{
+        position: relative;
+        width: 2.8rem;
+        height: 2.8rem;
+        border-radius: 0.13rem;
+        overflow: hidden;
+        img,.recommend_list .song_des img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        p {
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            font-size: 0.27rem;
+            i {
+                font-size: 0.13rem;
+            }
+            span {
+                color: #fff;
+                margin: 0.11rem 0.11rem 0.11rem 0;
+            }
+        }
+    }
+    >p {
+        flex: 1;
+        font-size: 0.27rem;
+        padding-top: 0.07rem;
+        line-height: 1.6;
+        color: var(--themeFontColor);
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+// 图片懒加载loading
+.song_item .info,
+.recommend_list .song_des,
+.dj_list_item,
+.common li,
+.player_list .left{
+    position: relative;
+    img {
+        &[lazy = loading], &[lazy = error]{
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            width: 1rem !important;
+            height: 1rem !important;
+            margin: auto;
+        }
+    }
+}
+.recommend_list .song_des img,.dj_list_item img,.common li img, .player_list .left img {
+    position: inherit !important;
+}
+.dj_list_item img ,.common img {
+    margin: 0 !important;
+}
+.dj_list_item .info .info_user  img{
+    width: .5rem !important;
+    height: .5rem !important;
+}
+// 推荐歌单的样式
+.song_recommend {
+    display: flex;
+    overflow: auto;
+    margin: 0 0.4rem;
+    &::-webkit-scrollbar { // 去除滚动条
+        display: none;
+    }
+    >a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        margin-right: 0.4rem;
+    }
+    a:last-of-type{
+        margin: 0;
+    }
+}
+// 提示
+.prompt {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 3rem;
+    height: 1rem;
+    margin: auto;
+    font-size: .3rem;
+    text-align: center;
+    line-height: 1rem;
+    color: #ffffff;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999999;
+}
+// 推荐歌单 头部
+.discover_song {
+    margin: 0.27rem 0;
+    .discover_song_head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 0.4rem;
+        height: 0.93rem;
+        >h3 {
+            font-size: 0.41rem;
+            color: var(--themeFontColor);
+            font-weight: bold;
+        }
+        >p {
+            font-size: 0.21rem;
+            padding: 0.11rem;
+            border: 0.01rem solid #ddd;
+            border-radius: 0.27rem;
+        }
+    }
+}
+.discover_song_new {
+    margin: 0.27rem 0;
+    .discover_song_head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 0.93rem;
+        >h3 {
+            font-size: 0.41rem;
+            color: var(--themeFontColor);
+            font-weight: bold;
+        }
+        >p {
+            font-size: 0.21rem;
+            padding: 0.11rem;
+            border: 0.01rem solid #ddd;
+            border-radius: 0.27rem;
+        }
+    }
+}
+// 滚动导航
+.nav_list {
+    width: 100%;
+    height: 1rem;
+    position: relative;
+    background-color: #fff;
+    border-top: 1px solid #000000;
+    .nav_list_scroll {
+        overflow-x: auto;
+        overflow-y: hidden;
+        display: flex;
+        >section {
+            position: relative;
+            flex: 0 0 25%;
+            color: var(--themeFontColor);
+            font-weight: 500;
+            font-size: .35rem;
+            text-align: center;
+            line-height: 1rem;
+            box-sizing: border-box;
+        }
+        .activate{
+            color: var(--themeColor);
+            font-weight: bolder;
+        }
+        &::-webkit-scrollbar { // 去除滚动条
+            display: none;
+        }
+    }
+}

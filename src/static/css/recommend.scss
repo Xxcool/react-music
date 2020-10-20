@@ -1,0 +1,90 @@
+// 歌单样式
+.recommend {
+  overflow: hidden;
+  // 歌单头部样式
+  .recommend_header {
+    background: var(--themePlayerColor) !important;
+    .recommend_header_top {
+      display: flex;
+      align-items: center;
+      height: 1.1rem;
+      padding: 0 0.4rem;
+      color: var(--themeFontColor);
+      font-size: 0.34rem;
+      i {
+        font-size: 0.4rem;
+        margin-right: 0.1rem;
+      }
+    }
+    .recommend_header_all {
+      height: 1.07rem;
+      background-color: #fff;
+      font-size: 0.37rem;
+      color: #333;
+      border-radius: 0.6rem 0.6rem 0 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 0.01rem 0.01rem #ddd;
+      i {
+        margin: 0 0.35rem;
+        font-size: 0.53rem;
+      }
+    }
+  }
+  // 歌单列表
+  > .recommend_list {
+    padding: 0 0.35rem;
+    li {
+      height: 1.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--themeFontColor);
+      .song_des {
+        display: flex;
+        max-width: calc(100% - 1.07rem);
+        img {
+          display: block;
+          width: 0.99rem;
+          height: 0.99rem;
+          border-radius: 0.13rem;
+          overflow: hidden;
+          margin-right: 0.32rem;
+          flex-shrink: 0;
+        }
+        .song_des_info {
+          color: var(--themeFontColor);
+          font-size: 0.29rem;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          overflow: hidden;
+          p {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            &:last-of-type {
+              font-size: 0.22rem;
+            }
+          }
+          .title {
+            color: var(--themeFontColor);
+          }
+        }
+      }
+      .song_mv i {
+        font-size: 0.5rem;
+      }
+    }
+  }
+  .no_content {
+    display: flex;
+    /*主轴居中对齐*/
+    justify-content: center;
+    /*侧轴居中对齐*/
+    align-items: center;
+  }
+}

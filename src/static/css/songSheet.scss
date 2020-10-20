@@ -1,0 +1,31 @@
+// 歌单广场的样式
+.songSheet {
+  overflow: auto;
+  // 头部
+  .header {
+      background: var(--themeLinear) !important;
+      height: 1.2rem;
+      &>.left {
+          display: flex;
+          align-items: center;
+          color: #000;
+          i {
+              font-size: .4rem;
+          }
+          p {
+              font-size: .35rem;
+              margin-left: .1rem;
+          }
+      }
+  }
+  // 歌单列表
+  .handpick_list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 0.13rem 0.13rem 0;
+      .song_item {
+          margin-bottom: 0.27rem;
+      }
+  }
+}
