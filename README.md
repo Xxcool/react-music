@@ -25,3 +25,11 @@
   > github[点击传送](https://github.com/Binaryify/NeteaseCloudMusicApi)
 
   需要克隆到本地，服务器启动默认端口为 3000，记得和项目请求代理的端口保持一致，启动服务即可进行调用
+
+  #### 图片预览
+
+  ![](https://github.com/Xxcool/react-music/blob/main/src/static/images/view01.png)
+
+  ![](https://github.com/Xxcool/react-music/blob/main/src/static/images/view02.png)
+
+  ![](https://github.com/Xxcool/react-music/blob/main/src/static/images/view03.png)
