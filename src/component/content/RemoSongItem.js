@@ -10,7 +10,7 @@ const RemoSongItem = props => {
                 <Lazyload src={item.picUrl}/>
                 <p>
                     <i className="iconfont icon-bofangsanjiaoxing" style={{color}}></i>
-                    <span>{numberFormat(item.playCount ? item.playCount : item.program.adjustedPlayCount)}</span>
+                    <span>{numberFormat(item.playCount)}</span>
                 </p>
             </div>
             <p>{item.name}</p>

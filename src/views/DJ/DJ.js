@@ -23,10 +23,10 @@ class DJ extends Component {
     this.setState({
       // 改变状态并且处理数据
       banner: resultBanner.data.data.map((item) => ({ image: item.pic })),
-      rankingList: resultRankingList.data.result,
-      // rankingList: resultRankingList.data.data
-      //   .map((item) => item.radios)
-      //   .reduce((a, b) => a.concat(b)),
+      // rankingList: resultRankingList.data.data,
+      rankingList: resultRankingList.data.data
+        .map((item) => item.radios)
+        .reduce((a, b) => a.concat(b)),
       programList: resultProgram.data.data.list,
     });
   }

@@ -22,7 +22,7 @@ export const getRankSong = () => request('/toplist/detail')
 // 获取电台轮播图数据的接口请求函数
 export const getDjBanner = () => request('/dj/banner')
 // 获取电台推荐歌单数据的接口请求函数
-export const getDjRecommend = () => request('/personalized/djprogram')
+export const getDjRecommend = () => request('/dj/category/recommend')
 // 获取电台节目榜列表数据的接口请求函数
 export const getDjProgram = (limit = 30) => request(`/dj/program/toplist/hours?limit=${limit}`)
 

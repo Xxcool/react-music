@@ -36,8 +36,7 @@ class Video extends Component {
   // 获取视频标签下的视频数据
   async getVideoTag(id) {
     const { loginStatus } = this.props;
-    // debugger
-    if(loginStatus) {
+    if(!Object.keys(loginStatus).length) {
       return Toast.info('请先登录');
     }
     const result = await getVideoTagData(id);
