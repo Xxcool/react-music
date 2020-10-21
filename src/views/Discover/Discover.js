@@ -42,6 +42,7 @@ class Discover extends Component {
   // 同步进行请求数据
   UNSAFE_componentWillMount() {
     this.getData();
+    this.getNewMusicData()
     // 同步方法进行渲染菜单选项的解构
     this.optionDOM = (
       <ul className="discover_option">
@@ -98,11 +99,7 @@ class Discover extends Component {
       song,
     });
 
-    // 获取最新音乐
-    const result = await NewMusicData();
-    this.setState({
-      newMusic: result.data.result,
-    });
+    
   }
   // 点击跳转到推荐音乐页面 需要提前登录
   handleRecommend = async () => {
@@ -114,6 +111,14 @@ class Discover extends Component {
       this.props.history.push("/recommend?id=daily");
     }
   };
+
+  async getNewMusicData() {
+    // 获取最新音乐
+    const result = await NewMusicData();
+    this.setState({
+      newMusic: result.data.result,
+    });
+  }
 
   // 点击最新音乐
   handleClick = async (item, index) => {
@@ -128,7 +133,7 @@ class Discover extends Component {
       al: item,
       url: resutlSongUrl.data.data[0].url,
     };
-    console.log(item);
+    
     // 整合歌单列表的数据 并且向全局状态发送值
     const playerList = this.state.newMusic.map((item) => ({
       name: item.name,
@@ -143,6 +148,7 @@ class Discover extends Component {
       setLocalStorage("hot_history", init);
     }
     // 进行本地存储
+    console.log(option, 'option');
     setLocalStorage("player", option);
     setLocalStorage("playerList", playerList);
     setLocalStorage("playerIndex", index);
@@ -245,10 +251,14 @@ class Discover extends Component {
   }
 }
 
-export default connect((state) => ({
-  loginStatus: state.loginStatus,
-  getMenusData,
-  getPlayerList,
-  getIsPlay,
-  getPlayerIndex,
-}))(Discover);
+export default connect(
+  (state) => ({
+    loginStatus: state.loginStatus,
+  }),
+  {
+    getMenusData,
+    getPlayerList,
+    getIsPlay,
+    getPlayerIndex,
+  }
+)(Discover);
