@@ -188,7 +188,10 @@ class Discover extends Component {
                     <div className="song_des">
                       <LazyLoading src={item.picUrl} />
                       <div className="song_des_info">
-                        <p className="title">{item.name}</p>
+                        <p className="title">
+                          {item.name}&nbsp;
+                          <span>{item.song.alias.length > 0 ? `(${item.song.alias[0]})`  : ''}</span>
+                        </p>
                         <p>
                           {item.song.artists[0].name} - {item.song.album.name}
                         </p>

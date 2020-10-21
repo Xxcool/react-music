@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import { HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/index";
+import { PersistGate } from "redux-persist/lib/integration/react";
+import { persistor } from "./store/index";
 import "./static/iconfont/iconfont.css";
 import "./static/js/rem";
 import "./static/css/reset.css";
@@ -23,7 +25,9 @@ import * as serviceWorker from "./serviceWorker";
 ReactDOM.render(
   <HashRouter>
     <Provider store={store}>
-      <App />
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
     </Provider>
   </HashRouter>,
   document.getElementById("root")
