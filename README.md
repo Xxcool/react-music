@@ -20,7 +20,11 @@
 
   export default connect(...args)(MyComponent);
   ```
-  #### 4.学习网易云api的相关文档，进行api的调用
+  #### 4.利用redux-persist持久化数据存储，解决刷新页面数据丢失问题
+  使用redux存储数据，但是刷新会导致数据丢失的问题，所以用到了redux-persist持久化数据存储插件
+  > 请查看另一篇文章 ✌[点击传送门](https://juejin.im/post/6885907913265971208)
+
+  #### 5.学习网易云api的相关文档，进行api的调用
   > 网易云音乐API文档[点击传送](https://binaryify.github.io/NeteaseCloudMusicApi/#/?id=neteasecloudmusicapi)
   > github[点击传送](https://github.com/Binaryify/NeteaseCloudMusicApi)
 
