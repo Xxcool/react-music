@@ -13,7 +13,7 @@ class App extends Component {
   // 设置主题
   setTheme(name) {
     const el = document.querySelector("#theme");
-    el.href = `http://www.qklhk.co/theme/${name}.css`;
+    el.href = `https://xxcool.top/theme/${name}.css`;
   }
   UNSAFE_componentWillUpdate(nextProps, nextState, nextContext) {
     const { themeName } = nextProps;
