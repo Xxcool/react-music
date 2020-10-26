@@ -1,0 +1,10 @@
+:root {
+  /*主题颜色*/
+  --themeColor: #F56C6C;
+  /*主题渐变*/
+  --themeLinear: linear-gradient(to left, #ff5e4d, #e62626);
+  /*主题字体颜色*/
+  --themeFontColor: #303133;
+  /*主题音乐渐变*/
+  --themePlayerColor: linear-gradient(135deg, #8e8485 0%, #e6846e 100%);
+}
